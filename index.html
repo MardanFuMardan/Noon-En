@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page and Tab Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    margin: 0;
+    padding: 20px;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #232323;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  h1, h2 {
+    text-align: center;
+    color: #f2d812;
+    margin-bottom: 20px;
+  }
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f2d812;
+    border-radius: 5px;
+    background: #1c1c1c;
+    color: #f5f5f5;
+    box-sizing: border-box;
+  }
+  textarea {
+    resize: vertical;
+  }
+  button {
+    padding: 10px 20px;
+    background: #f2d812;
+    color: #121212;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-right: 10px;
+  }
+  button:hover {
+    background: #fdff48;
+  }
+  .section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #1c1c1c;
+    border: 1px solid #f2d812;
+    border-radius: 5px;
+  }
+  .templates-container {
+    margin-top: 15px;
+  }
+  .output {
+    background: #1c1c1c;
+    color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Page and Tab Generator</h1>
+  <label for="pageTitle">Page Title:</label>
+  <input type="text" id="pageTitle" placeholder="Enter page title">
+
+  <label for="pageIcon">Page Icon:</label>
+  <input type="text" id="pageIcon" placeholder="Enter Font Awesome class (e.g., fas fa-folder)">
+
+  <div id="tabsContainer"></div>
+  <button id="addTab">Add Tab</button>
+  <button id="generateCode">Generate Code</button>
+
+  <h2>Generated Code</h2>
+  <pre class="output" id="output"></pre>
+</div>
+<script>
+  const tabsContainer = document.getElementById('tabsContainer');
+  const generateButton = document.getElementById('generateCode');
+  const addTabButton = document.getElementById('addTab');
+  const output = document.getElementById('output');
+
+  // Add a new tab section
+  addTabButton.addEventListener('click', () => {
+    const tabDiv = document.createElement('div');
+    tabDiv.classList.add('section');
+    tabDiv.innerHTML = `
+      <label>Tab Title:</label>
+      <input type="text" class="tabTitle" placeholder="Enter tab title">
+      <label>Tab Icon:</label>
+      <input type="text" class="tabIcon" placeholder="Enter Font Awesome class">
+      <div class="templates-container"></div>
+      <button class="addTemplate">Add Template</button>
+    `;
+    tabsContainer.appendChild(tabDiv);
+
+    // Add template inside the tab
+    tabDiv.querySelector('.addTemplate').addEventListener('click', () => {
+      const templatesContainer = tabDiv.querySelector('.templates-container');
+      const templateDiv = document.createElement('div');
+      templateDiv.classList.add('section');
+      templateDiv.innerHTML = `
+        <label>Template Heading:</label>
+        <input type="text" class="templateHeading" placeholder="Enter template heading">
+        <label>Template Content:</label>
+        <textarea class="templateContent" rows="4" placeholder="Enter template content"></textarea>
+      `;
+      templatesContainer.appendChild(templateDiv);
+    });
+  });
+
+// Generate the code
+generateButton.addEventListener('click', () => {
+    const pageTitle = document.getElementById('pageTitle').value.trim();
+    const pageIcon = document.getElementById('pageIcon').value.trim();
+
+    if (!pageTitle || !pageIcon) {
+        alert('Page title and icon are required!');
+        return;
+    }
+
+    const tabs = [];
+    const tabSections = document.querySelectorAll('#tabsContainer .section');
+
+    tabSections.forEach((tabSection) => {
+        const tabTitleElement = tabSection.querySelector('.tabTitle');
+        const tabIconElement = tabSection.querySelector('.tabIcon');
+
+        // Check if tab title and icon elements exist
+        if (!tabTitleElement || !tabIconElement) {
+            console.error('Missing tab title or icon inputs.');
+            return;
+        }
+
+        const tabTitle = tabTitleElement.value.trim();
+        const tabIcon = tabIconElement.value.trim();
+
+        if (!tabTitle || !tabIcon) return;
+
+        const templates = [];
+        const templateSections = tabSection.querySelectorAll('.templates-container .section');
+
+        templateSections.forEach((templateSection) => {
+            const templateHeadingElement = templateSection.querySelector('.templateHeading');
+            const templateContentElement = templateSection.querySelector('.templateContent');
+
+            // Check if template heading and content elements exist
+            if (!templateHeadingElement || !templateContentElement) {
+                console.error('Missing template heading or content inputs.');
+                return;
+            }
+
+            const heading = templateHeadingElement.value.trim();
+            const content = templateContentElement.value.trim();
+
+            if (!heading || !content) return;
+
+            templates.push({ heading, content });
+        });
+
+        tabs.push({ title: tabTitle, icon: tabIcon, templates });
+    });
+
+    if (tabs.length === 0) {
+        alert('At least one tab with content is required!');
+        return;
+    }
+
+    const generatedCode = JSON.stringify({ title: pageTitle, icon: pageIcon, tabs }, null, 2);
+    output.textContent = generatedCode;
+});
+
+</script>
+</body>
+</html>
