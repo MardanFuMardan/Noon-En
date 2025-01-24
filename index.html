@@ -945,7 +945,11 @@ footer.main-footer p {
 }
 
 
-
+#navbar-iframe {
+height: 0px;
+visibility: hidden;
+display: none;
+}
 </style>
 </head>
 <body>
@@ -975,8 +979,8 @@ footer.main-footer p {
     <i class="fas fa-times"></i>
   </button>
   <div class="dropdown-list">
-    <div><a href="https://mail-egy-ar.vercel.app"><i class="fas fa-square-envelope"></i>EGY Mail Ar</a></div>
-    <div><a href="https://mail-egy-en.vercel.app"><i class="fas fa-square-envelope"></i>EGY Mail En</a></div>
+    <div><a href="https://mail-ar.vercel.app/"><i class="fas fa-square-envelope"></i>EGY Mail Ar</a></div>
+    <div><a href="https://mail-en.vercel.app/"><i class="fas fa-square-envelope"></i>EGY Mail En</a></div>
     <div><a href="#"><i class="fas fa-message"></i>Chat Ar - Soon</a></div>
     <div><a href="#"><i class="fas fa-message"></i>Chat En - Soon</a></div>
     <div><a href="#"><i class="fas fa-square-envelope"></i>Sivvi Ar - Soon</a></div>
@@ -3316,24 +3320,47 @@ function copyContent(button) {
 generatePages();
 
 /* Back to Top Button Functionality */
-const backToTopButton = document.getElementById("backToTop");
+    const backToTopButton = document.getElementById("backToTop");
 
-// Show/hide button on scroll
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 100) {
-    backToTopButton.style.display = "block"; // Show button
-  } else {
-    backToTopButton.style.display = "none"; // Hide button
-  }
-});
+    // Show/hide button on scroll
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        backToTopButton.style.display = "block"; // Show button
+      } else {
+        backToTopButton.style.display = "none"; // Hide button
+      }
+    });
 
-// Scroll to top smoothly when button is clicked
-backToTopButton.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-});
+    // Custom smooth scroll to top function
+    function smoothScrollToTop(duration) {
+      const startPosition = window.pageYOffset; // Current scroll position
+      const startTime = performance.now();
+
+      function scrollStep(currentTime) {
+        const elapsedTime = currentTime - startTime;
+        const progress = Math.min(elapsedTime / duration, 1); // Progress percentage (0 to 1)
+
+        // Ease-in-out function for smooth transition
+        const easeInOutQuad = progress < 0.5
+          ? 2 * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+        const scrollToPosition = startPosition * (1 - easeInOutQuad);
+        window.scrollTo(0, scrollToPosition);
+
+        if (progress < 1) {
+          requestAnimationFrame(scrollStep); // Continue scrolling
+        }
+      }
+
+      requestAnimationFrame(scrollStep); // Start scrolling
+    }
+
+    // Scroll to top when button is clicked
+    backToTopButton.addEventListener("click", () => {
+      smoothScrollToTop(800); // Duration in milliseconds
+    });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   /* Theme Toggle */
@@ -3483,7 +3510,12 @@ setTimeout(() => {
   document.head.appendChild(style); // إضافة الـ style إلى الـ head
 }, 1000); // تأخير بمقدار 1000 مللي ثانية (1 ثانية)
 
-</script>
+
+
+
+
+
+
 
 
 </script>
