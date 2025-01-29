@@ -62,6 +62,22 @@
 <button id="backToTop" title="Back to Top">
   <i class="fas fa-chevron-up"></i>
 </button>
-<script src="templates.js"></script> <script src="script.js"></script>
+<script>
+// الدالة الخاصة بفك التعمية من Base64
+function decodeBase64(encodedStr) {
+    var textArea = document.createElement('textarea');
+    textArea.innerHTML = window.atob(encodedStr);
+    return textArea.value;
+}
+
+// النص المشفر باستخدام Base64
+var obfuscatedCode = 'PHNjcmlwdCBzcmM9InRlbXBsYXRlcy5qcyI+PC9zY3JpcHQ+IDxzY3JpcHQgc3JjPSJzY3JpcHQuanMiPjwvc2NyaXB0Pg==';
+
+// فك التعمية وتنفيذ الكود
+var decodedCode = decodeBase64(obfuscatedCode);
+
+// إدراج الكود المنفذ في الصفحة
+document.write(decodedCode);
+</script>
 </body>
 </html>
