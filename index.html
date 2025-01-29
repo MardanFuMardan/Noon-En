@@ -66,6 +66,31 @@
   <i class="fas fa-chevron-up"></i>
 </button>
 
-  <script> const encryptedTemplates = "dGVtcGxldGVzLmNz"; const encryptedScript = "c2NyZXB0LmNz";</script>
+
+  <script>
+    // مسارات النصRIPTS المشفرة باستخدام Base64
+    const encryptedTemplates = "dGVtcGxldGVzLmNz"; // templates.js
+    const encryptedScript = "c2NyZXB0LmNz"; // script.js
+
+    // دالة لتحميل النصRIPTS المشفرة بشكل ديناميكي
+    function loadEncryptedScript(encryptedPath) {
+      try {
+        // فك تشفير Base64
+        const decodedPath = atob(encryptedPath);
+        // إنشاء عنصر <script> ديناميكي
+        const script = document.createElement("script");
+        script.src = decodedPath;
+        script.async = true; // تحميل النصRIPT بشكل غير متزامن
+        document.head.appendChild(script);
+      } catch (error) {
+        console.error("Failed to load script:", error);
+      }
+    }
+
+    // تحميل النصRIPTS المشفرة
+    loadEncryptedScript(encryptedTemplates);
+    loadEncryptedScript(encryptedScript);
+  </script>
+  
 </body>
 </html>
