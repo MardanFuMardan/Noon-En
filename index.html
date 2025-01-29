@@ -69,27 +69,27 @@
 
   <script>
 
-        // مسارات النصRIPTS المشفرة
-    const encryptedTemplates = "dGVtcGxldGVzLmNz"; // templates.js
-    const encryptedScript = "c2NyZXB0LmNz"; // script.js
+async function loadAESEncryptedScript(encrypted) {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode("secretKey123"),
+    { name: "AES-GCM" },
+    false,
+    ["decrypt"]
+  );
 
-    // دالة لتحميل النصRIPTS
-    function loadEncryptedScript(encryptedPath) {
-      try {
-        const decodedPath = atob(encryptedPath);
-        const script = document.createElement("script");
-        script.src = decodedPath;
-        script.async = true;
-        document.head.appendChild(script);
-      } catch (error) {
-        console.error("Error loading script:", error);
-      }
-    }
+  const decoded = new TextDecoder("utf-8").decode(
+    await crypto.subtle.decrypt(
+      { name: "AES-GCM", iv: new Uint8Array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) },
+      key,
+      encrypted
+    )
+  );
 
-    // تحميل النصRIPTS
-    loadEncryptedScript(encryptedTemplates);
-    loadEncryptedScript(encryptedScript);
-    
+  const script = document.createElement("script");
+  script.text = decoded;
+  document.head.appendChild(script);
+}
   </script>
   
 </body>
