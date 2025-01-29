@@ -16,7 +16,7 @@
   <div class="header-logo">
     <img id="logo" src="https://i.imgur.com/8qBeodL.png" alt="Mail Ar">
   </div>
-
+ 
 <!-- ديف لتجميع الأزرار الدائرية -->
 <div class="circle-buttons-container">
   <!-- زر القائمة المنسدلة (الدروب منيو) -->
@@ -68,28 +68,28 @@
 
 
   <script>
-    // مسارات النصRIPTS المشفرة باستخدام Base64
+
+        // مسارات النصRIPTS المشفرة
     const encryptedTemplates = "dGVtcGxldGVzLmNz"; // templates.js
     const encryptedScript = "c2NyZXB0LmNz"; // script.js
 
-    // دالة لتحميل النصRIPTS المشفرة بشكل ديناميكي
+    // دالة لتحميل النصRIPTS
     function loadEncryptedScript(encryptedPath) {
       try {
-        // فك تشفير Base64
         const decodedPath = atob(encryptedPath);
-        // إنشاء عنصر <script> ديناميكي
         const script = document.createElement("script");
         script.src = decodedPath;
-        script.async = true; // تحميل النصRIPT بشكل غير متزامن
+        script.async = true;
         document.head.appendChild(script);
       } catch (error) {
-        console.error("Failed to load script:", error);
+        console.error("Error loading script:", error);
       }
     }
 
-    // تحميل النصRIPTS المشفرة
+    // تحميل النصRIPTS
     loadEncryptedScript(encryptedTemplates);
     loadEncryptedScript(encryptedScript);
+    
   </script>
   
 </body>
