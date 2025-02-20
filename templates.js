@@ -595,7 +595,7 @@ const pagesData = [
      "templates": [
        {
          "heading": "Asking Damage Questions",
-         "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (____), we apologize for any issues you have encountered.\n\nPlease answer the following questions:\n\nWhat exactly is the damage to the order?\n\nWas there any damage to the external delivery box? And what was the condition of the package upon receipt? (Sealed/Open/Damaged).\n\nHow was the product packaged? (Bubble wrap/Rubber plastic/No packaging).\n\nPlease note that it is necessary to share a photo or video of the damage to assist you in taking the necessary actions.\n\nFor further assistance, feel free to contact our customer service team at: Egypt@noon.com.\n\nThank you,\nNoon Team."
+"content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (____), we apologize for any issue you have faced.\n\nPlease answer the following questions:\n\nWhat exactly is the damage to the item? Please describe the defect in the received product and what happened with the order.\n\nHow was the item packed? (Bubble wrap / Stretch wrap / Normal box / Plastic pouch)?\n\nWas there any damage to the shipment box or signs of it being opened?\n\nWas there any damage to the product box itself?\n\nPlease note that you must share a photo or video of the issue to assist you in taking the necessary action.\n\nFor further assistance, feel free to contact our customer service team at: Egypt@noon.com.\n\nThank you,\nNoon Team."
        },
        {
          "heading": "Raised Damage Complaint after Sharing the images",
