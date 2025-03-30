@@ -595,7 +595,7 @@ const pagesData = [
      "templates": [
        {
          "heading": "Asking Damage Questions",
-"content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (____), we apologize for any issue you have faced.\n\nPlease answer the following questions:\n\nWhat exactly is the damage to the item? Please describe the defect in the received product and what happened with the order.\n\nHow was the item packed? (Bubble wrap / Stretch wrap / Normal box / Plastic pouch)?\n\nWas there any damage to the shipment box or signs of it being opened?\n\nWas there any damage to the product box itself?\n\nPlease note that you must share a photo or video of the issue to assist you in taking the necessary action.\n\nFor further assistance, feel free to contact our customer service team at: Egypt@noon.com.\n\nThank you,\nNoon Team."
+         "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (____), we apologize for any issues you have encountered.\n\nPlease answer the following questions:\n\nWhat exactly is the damage to the order?\n\nWas there any damage to the external delivery box? And what was the condition of the package upon receipt? (Sealed/Open/Damaged).\n\nHow was the product packaged? (Bubble wrap/Rubber plastic/No packaging).\n\nPlease note that it is necessary to share a photo or video of the damage to assist you in taking the necessary actions.\n\nFor further assistance, feel free to contact our customer service team at: Egypt@noon.com.\n\nThank you,\nNoon Team."
        },
        {
          "heading": "Raised Damage Complaint after Sharing the images",
@@ -623,7 +623,8 @@ const pagesData = [
      "templates": [
        {
          "heading": "Asking Fake Questions",
-"content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (____), we apologize for any issue you have faced.\n\nPlease answer the following questions:\n\nHow did you identify that the item is fake?\n\nPlease note that you must share a photo or video of the item, including the product box with the serial number.\n\nDo you have a report or proof from an authorized service center? If available, please share it.\n\nFor further assistance, feel free to contact our customer service team at: Egypt@noon.com.\n\nThank you,\nNoon Team."       },
+"content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (____), we apologize for any issue you have faced.\n\nPlease answer the following questions:\n\nHow did you identify that the item is fake?\n\nPlease note that you must share a photo or video of the item, including the product box with the serial number.\n\nDo you have a report or proof from an authorized service center? If available, please share it.\n\nFor further assistance, feel free to contact our customer service team at: Egypt@noon.com.\n\nThank you,\nNoon Team."
+       },
        {
          "heading": "Raised Fake Complaint after Sharing the images / Don't Forget Delist",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nWe have received your inquiry regarding order number (______). We sincerely apologize for this issue and confirm that this is not the norm for Noon.\n\nPlease note that all products displayed on our website are 100% original, as we only deal with a group of trusted sellers, in addition to a specialized and highly trained quality control team.\n\nPlease be informed that a complaint has been raised regarding the non-original order, with all details clarified to the relevant department and the necessary files attached.\n\nYou will be provided with updates within a maximum period of (2 days) from the date of submitting the complaint, as the relevant department will investigate and resolve the matter, and you will be contacted directly.\n\nFor further assistance, feel free to contact our customer service team via: Egypt@noon.com.\n\nThank you,\nNoon Team."
@@ -1567,12 +1568,11 @@ const pagesData = [
      "templates": [
        {
          "heading": "Asking Cx To Send Proof",
-         "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding order number (____), we have received your inquiry about the required fees.\n\nWe kindly ask you to send proof of payment for the taxes to the email (egypt@noon.com).\n\nPlease note that the proof of payment must include the phone's IMEI number and the amount paid.\n\nFor further assistance, feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
-       },
+         "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding order number (____), we have received your inquiry regarding the required fees, and we would like to assist you in the best possible way.\n\nTherefore, please provide us with the following information:\n\n- A screenshot of the NATRA message you received.\n- A screenshot from the \"Telephony\" app showing IMEI 1 and IMEI 2 numbers.\n- A photo of the phone box with IMEI 1 and IMEI 2 clearly visible.\n\nWe look forward to your response to proceed with the matter.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."       },
        {
          "heading": "Proof Shared Raised a Request",
-         "content": "Hala,\n\nThank you for choosing Noon!\n\nWe have received your inquiry regarding order number (______). Please note that the request has been raised to the concerned department, and the files sent by you have been attached with all details clarified to them.\n\nYou will be provided with updates within a maximum of (2 days) from the date of raising the request, as the concerned department will review and resolve the matter, and you will be contacted directly.\n\nFor further assistance, feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
-       }
+         "content": "Hala,\n\nThank you for choosing Noon!\n\nWe have received your inquiry regarding order number (______). Please be informed that the request has been escalated to the relevant department, and the files you sent, along with all details, have been shared with them.\n\nYou will receive updates within a maximum of (3 days) from the date the request was raised. The relevant department will review the matter and resolve it accordingly, and you will be contacted directly.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+        }
      ]
    },
    {
