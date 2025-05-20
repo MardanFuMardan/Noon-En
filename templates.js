@@ -25,6 +25,10 @@ const pagesData = [
          "content": "Hala,\n\nThank you for choosing Noon!\n\nWe are grateful for your communication with us, and we are delighted that your appreciation exceeds our expectations. We always strive to provide the best shopping experience for you and all our customers. We consider your feedback an opportunity to improve our services and deliver an experience worthy of you.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
        },
        {
+  "heading": "Unsatisfied",
+  "content": "Hala,\n\nThank you for choosing Noon!\n\nWe sincerely apologize for the issue you encountered. We want to assure you that we take your feedback seriously, and we will do our utmost to ensure such problems don't recur in the future.\n\nFor further assistance, please don't hesitate to contact our customer service team via email: Egypt@noon.com\n\nBest regards,\nThe Noon Team."
+},
+       {
          "heading": "No Info / Not Clear",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nTo provide you with the best service, please provide us with more details related to your request, such as: Order Number, Email, or Phone Number, so we can assist you quickly and efficiently.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
        },
@@ -71,6 +75,10 @@ const pagesData = [
          "heading": "Change Email",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nPlease note that you cannot change the email address registered on Noon under any circumstances. You can create a new account using a different email address if you wish.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
        },
+       {
+        "heading": "COD Blocked Info",
+        "content": "Hala,\n\nThank you for choosing Noon!\n\nWe apologize for any inconvenience you may have encountered.\n\nPlease note that the Cash on Delivery (COD) feature has been disabled on your account due to the cancellation of multiple orders created with this payment method.\n\nYou can continue to place orders normally using the prepayment service. After successfully completing a number of orders, the Cash on Delivery feature will be automatically reactivated.\n\nFor further assistance, please don't hesitate to contact our customer service team via email: Egypt@noon.com\n\nBest regards,\nThe Noon Team."
+        },
        {
          "heading": "Unsubscribe",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nWe understand your desire to unsubscribe from email communications.\n\nYou can stop promotional messages without stopping order-related messages. You will find the \"Unsubscribe\" option at the bottom of the email.\n\nClick on it, and your request will be confirmed.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
@@ -247,6 +255,16 @@ const pagesData = [
        }
      ]
    },
+{
+  "title": "CIB Credit Card",
+  "icon": "fas fa-credit-card",
+  "templates": [
+    {
+      "heading": "CIB Credit Card",
+      "content": "Hala,\n\nThank you for choosing Noon!\n\nThe Noon CIB credit card is the first electronic credit card issued in collaboration between CIB Bank, Noon, and Visa, offering many exclusive benefits, including:\n\n5% instant discount on Noon (up to 150 EGP per order).\n\n100 EGP cashback after your first purchase.\n\nFree delivery and priority shipping on Noon Express products within Cairo and Giza.\n\n1.5 CIB points for every 1 EGP spent outside Noon.\n\nAnnual renewal fee waiver if your annual spending exceeds 60,000 EGP.\n\nInstallment offers: 6 months available all the time, plus 10 and 15 months depending on campaign availability on the website.\n\nTo apply for the card, please visit the following link and fill out the application: https://www.noon.com/egypt-en/cibnooncreditcard\n\nAfter applying, you'll receive the card within 7 to 10 working days.\n\nRequirements include a valid national ID card, an HR letter from your employer, and additional documents may be requested depending on your case.\n\nThe card is valid for use on Noon and elsewhere, and activation is done through the steps outlined in the welcome package when you receive the card.\n\nFor further assistance, please don't hesitate to contact our customer service team via email: Egypt@noon.com\n\nBest regards,\nThe Noon Team."
+    }
+  ]
+},
    {
      "title": "Shipping Fees",
      "icon": "fas fa-comment-dollar",
@@ -388,7 +406,15 @@ const pagesData = [
        {
          "heading": "Invalid Authorized",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_______), we regret to inform you that the order was not completed successfully. This may be due to an error during the payment process.\n\nPlease note that this issue has already been escalated to the relevant department to take the necessary actions, and the complaint will be updated within a maximum of two days. We will also contact you via phone or email if necessary.\n\nWe would also like to clarify that the amount was not deducted by Noon and was only suspended by the bank. The amount will reappear in your bank account within 5 to 7 business days, depending on the bank's policy.\n\nPlease note that business days do not include official holidays such as Friday and Saturday.\n\nAlso, most refund requests do not trigger a text message from the bank informing you of the refund (in this case, please check your bank statement).\n\nIf you do not find the amount after considering the above points, please contact the bank and inquire about the reason for the amount not appearing in your statement.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
-       }
+       },
+  {
+    "heading": "Invalid Captured",
+    "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_______), we would like to inform you that, unfortunately, the order was not successfully completed.\n\nPlease note that the amount will be refunded to your Noon Wallet within 24 hours. After that, it will be automatically transferred to your bank account within 5 to 7 business days, depending on your bank's policy.\n\nKindly be advised that business days do not include weekends and official holidays, such as Friday and Saturday.\n\nFor further assistance, please do not hesitate to contact our Customer Support Team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+  },
+        {
+    "heading": "Invalid Captured Amount not credited to Cx Noon Wallet",
+    "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_______), we sincerely apologize for this issue, and we assure you that the necessary actions will be taken. We are always striving to improve our services to provide the best for our valued customers.\n\nPlease note that a complaint has been raised regarding this issue, and all details have been shared with the concerned department.\n\nYou will receive updates within a maximum of two (2) days from the date the complaint was submitted. The concerned department will investigate the matter and resolve it, God willing. You will be contacted accordingly.\n\nFor further assistance, please do not hesitate to contact our Customer Support Team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+  },
      ]
    },
    {
@@ -442,9 +468,9 @@ const pagesData = [
        },
        {
          "heading": "Track Shipped Prepaid More than 4500 & Bulky",
-         "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), it is now being shipped, and the expected delivery date is (00 of the current month). Please note that delivery times are from (10 AM to 10 PM).\n\nYour order is in the final stage, and once it is out for delivery, you will receive an email containing a tracking link.\n\nWhen the agent approaches your area, their phone number will appear through the \"Call Agent\" button on the order page in your account.\n\nThe agent will also have the option to send a text message titled \"On My Way\", which will include their number to facilitate communication and coordinate the receipt. The text message will also contain a one-time verification code (OTP).\n\nPlease note that the OTP is required to complete the delivery process, and it can be found in the text message or on the orders page in your account.\n\nTo check the order status and the expected delivery date:\n\nLog in to the Noon website or app.\n\nThen click on (My Account), then (Orders).\n\nYou will find the expected delivery date and the associated order number above each product.\n\nTo check the tracking status of the order, click on the product or order you want to track.\n\nYou will be taken to the tracking details page.\n\nClick on \"View Full Tracking\" and track your order or product according to the tracking statuses shown to you, and you will find an explanation for each status below it.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
-       },
-       {
+          "content": "Hala,\n\nThank you for choosing noon!\n\nRegarding your order number (_____), it is now being shipped, and the expected delivery date is (00 of the current month). Please note that delivery times are between (10 AM and 10 PM).\n\nYour order is in its final stage. Once it is out for delivery, you will receive an email with a tracking link.\n\nWhen the delivery agent gets close to your area, their phone number will appear via the \"Call the Agent\" button on the order page in your account.\n\nThe agent may also choose to send a WhatsApp message saying \"I’m on my way,\" which will include their number to help facilitate contact and coordinate the handover.\n\nPlease note that an OTP (One-Time Password) is required to complete the delivery if your order is prepaid and exceeds EGP 4500, or if it contains bulky items. You will be asked to enter this OTP to complete the delivery.\n\nYou can find the OTP in the WhatsApp message sent to your registered number, or on the order page in your noon app account.\n\nIf you're unable to access the OTP, please contact us and we’ll assist you after verifying some information to ensure the security of your order.\n\nTo check your order status and expected delivery date:\n\nLog in to the noon website or app.\n\nThen go to (My Account), then (Orders).\n\nYou will see the expected delivery date and order number above each item.\n\nTo check the tracking status of your order, click on the item or order you want to track.\n\nYou’ll be directed to the tracking details page.\n\nClick on \"View Full Tracking\" and follow your order or item based on the tracking updates shown. An explanation of each status will appear below.\n\nFor more assistance, feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nnoon Team."
+},
+          {
          "heading": "Confirm Tracker Shipped COD",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), it is now being shipped, and according to the latest update on the order (_____), please confirm this.\n\nPlease note that delivery times are from (10 AM to 10 PM).\n\nYour order is in the final stage, and once it is out for delivery, you will receive an email containing a tracking link.\n\nWhen the agent approaches your address, their phone number will appear through the \"Call Agent\" button on the order page in your account.\n\nThe agent will also have the option to send a text message titled \"On My Way\", which will allow you to see the agent's phone number and communicate with them directly to coordinate the receipt.\n\nTo check the order status and the expected delivery date:\n\nLog in to the Noon website or app.\n\nThen click on (My Account), then (Orders).\n\nYou will find the expected delivery date and the associated order number above each product.\n\nTo check the tracking status of the order, click on the product or order you want to track.\n\nYou will be taken to the tracking details page.\n\nClick on \"View Full Tracking\" and track your order or product according to the tracking statuses shown to you, and you will find an explanation for each status below it.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
        },
@@ -454,8 +480,8 @@ const pagesData = [
        },
        {
          "heading": "Confirm Tracker Shipped Prepaid More than 4500 & Bulky",
-         "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), it is now being shipped, and according to the latest update on the order (_____), please confirm this.\n\nPlease note that delivery times are from (10 AM to 10 PM).\n\nYour order is in the final stage, and once it is out for delivery, you will receive an email containing a tracking link.\n\nWhen the agent approaches your area, their phone number will appear through the \"Call Agent\" button on the order page in your account.\n\nThe agent will also have the option to send a text message titled \"On My Way\", which will include their number to facilitate communication and coordinate the receipt. The text message will also contain a one-time verification code (OTP).\n\nPlease note that the OTP is required to complete the delivery process, and it can be found in the text message or on the orders page in your account.\n\nTo check the order status and the expected delivery date:\n\nLog in to the Noon website or app.\n\nThen click on (My Account), then (Orders).\n\nYou will find the expected delivery date and the associated order number above each product.\n\nTo check the tracking status of the order, click on the product or order you want to track.\n\nYou will be taken to the tracking details page.\n\nClick on \"View Full Tracking\" and track your order or product according to the tracking statuses shown to you, and you will find an explanation for each status below it.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
-       }
+        "content": "Hala,\n\nThank you for choosing noon!\n\nRegarding your order number (_____), it is now in the shipping phase. According to the latest update on your order (_____), so please confirm this.\n\nPlease note that delivery times are between (10 AM and 10 PM).\n\nYour order is in its final stage, and once it is out for delivery, you will receive an email containing a tracking link.\n\nWhen the delivery agent approaches your area, their phone number will appear via the \"Call the Agent\" button on the order page in your account.\n\nThe agent may also choose to send a text message saying \"I'm on my way,\" which will include their number to make it easier to contact them and coordinate the handover.\n\nPlease note that an OTP (One-Time Password) is required to complete the delivery if your order is prepaid and its value exceeds EGP 4500, or if it contains bulky items. You will be asked to enter a one-time verification code (OTP) to complete the delivery.\n\nYou can find the OTP in the WhatsApp message sent to your registered number or through the orders page in your noon app account.\n\nIf you're unable to access the code, please contact us and we will assist you after verifying some information to ensure the security of your order.\n\nTo check the status of your order and the expected delivery date:\n\nLog in to the noon website or app.\n\nThen click on (My Account), then (Orders).\n\nAbove each item, you will find the expected delivery date and the related order number.\n\nTo check the tracking status of your order, click on the item or order you wish to track.\n\nYou will be directed to the tracking details page.\n\nClick on \"View Full Tracking\" and track your order or item according to the tracking statuses shown, with an explanation provided below each status.\n\nFor further assistance, feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nThe noon Team."     
+        }
      ]
    },
    {
@@ -472,7 +498,7 @@ const pagesData = [
        },
        {
          "heading": "Track Export Shipped Noon Express Prepaid More than 4500 & Bulky",
-         "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), it contains products being prepared and processed and other products that are now being shipped. The expected delivery date is (from 00 to 00 of the current month). Please note that delivery times are from (10 AM to 10 PM).\n\nOnce the order is shipped, you will be notified via email. Once the order is out for delivery, you will receive an email stating that the shipment has been dispatched for delivery, confirming the delivery process as well.\n\nWhen the agent approaches your area, their phone number will appear through the \"Call Agent\" button on the order page in your account.\n\nThe agent will also have the option to send a text message titled \"On My Way\", which will include their number to facilitate communication and coordinate the receipt. The text message will also contain a one-time verification code (OTP).\n\nPlease note that the OTP is required to complete the delivery process, and it can be found in the text message or on the orders page in your account.\n\nTo check the order status and the expected delivery date:\n\nLog in to the Noon website or app.\n\nThen click on (My Account), then (Orders).\n\nYou will find the expected delivery date and the associated order number above each product.\n\nTo check the tracking status of the order, click on the product or order you want to track.\n\nYou will be taken to the tracking details page.\n\nClick on \"View Full Tracking\" and track your order or product according to the tracking statuses shown to you, and you will find an explanation for each status below it.\n\nFor further assistance, please feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+        "content": "Hala,\n\nThank you for choosing noon!\n\nRegarding your order number (_____), it includes some items that are being prepared and others that are already in the shipping phase. The expected delivery date is (from 00 to 00 of the current month). Please note that delivery times are from (10 AM to 10 PM).\n\nOnce the order is shipped, you will be notified via email. As soon as the order is out for delivery, you will receive an email confirming that the shipment is on its way to confirm the delivery process.\n\nWhen the delivery agent approaches your area, their phone number will appear via the \"Call the Agent\" button on the order page in your account.\n\nThe agent may also choose to send a text message saying \"I'm on my way,\" which will include their number to facilitate communication and coordination for delivery.\n\nPlease note that an OTP (One-Time Password) is required to complete the delivery if your order is prepaid and exceeds EGP 4500, or if it includes bulky items. You will be asked to enter a one-time verification code (OTP) to complete the delivery.\n\nYou can find the OTP in a WhatsApp message sent to your registered number or through the orders page in your noon app account.\n\nIf you are unable to access the code, please contact us and we will assist you after verifying some information to ensure the security of your order.\n\nTo check the order status and the expected delivery date:\n\nLog in to the noon website or app.\n\nThen click on (My Account), then (Orders).\n\nAbove each item, you will find the expected delivery date and the related order number.\n\nTo check the tracking status of your order, click on the item or order you wish to track.\n\nYou will be directed to the tracking details page.\n\nClick on \"View Full Tracking\" and track your order or item based on the visible tracking statuses. An explanation will be shown below each status.\n\nFor further assistance, don’t hesitate to contact our customer service team at Egypt@noon.com.\n\nThank you,\nThe noon Team."
        }
      ]
    },
@@ -518,6 +544,26 @@ const pagesData = [
        }
      ]
    },
+   {
+  "title": "OTP",
+  "icon": "fas fa-mobile",
+  "templates": [
+    {
+      "heading": "OTP Info",
+      "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____): please note that the One-Time Password (OTP) for receiving your order is available through the following steps:\n\n- By accessing the \"My Orders\" page and selecting the relevant order number.\n\n- Or via a WhatsApp message that is automatically sent to the phone number registered on your account.\n\nIf you're unable to retrieve the OTP, please reply to this email and answer at least two of the following questions so we can assist you and securely share the code:\n\n- What are the items included in the order?\n\n- What is the email address registered on your Noon account?\n\n- What is the phone number registered on your Noon account?\n\nIf you are contacting us from the same registered email or phone number, we may be able to share the OTP with you directly after verification.\n\nIf you are unable to provide the required information, please try retrieving the OTP via the Noon app or the WhatsApp message.\n\nFor further assistance, feel free to contact our Customer Support Team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+    }
+  ]
+},
+   {
+  "title": "Card on Delivery",
+  "icon": "fas fa-credit-card",
+  "templates": [
+    {
+      "heading": "Card on Delivery General",
+      "content": "Hala,\n\nThank you for choosing Noon!\n\nPlease note that \"Card on Delivery\" is one of the payment methods available through our delivery service Noon Express. This service allows you to pay using your bank card (credit or debit) upon receiving your order, even if you selected cash on delivery during checkout.\n\nThis service is currently available only in Greater Cairo and Alexandria.\n\nYou can inform the delivery representative of your desire to pay by card, and the representative will assist you with the process.\n\nThere's no need to modify your order or payment method during purchase. Simply selecting \"Cash on Delivery\" during checkout allows you to pay by card directly with the representative at the time of delivery.\n\nPlease ensure your bank card is valid, activated for electronic transactions, and has sufficient balance.\n\nIf you encounter any issues during the payment process, please contact us immediately for assistance.\n\nPlease note this service is only available for orders delivered by Noon Express and does not apply to shipments from other courier companies like J&T.\n\nFor further assistance, don't hesitate to contact our customer service team at Egypt@noon.com.\n\nBest regards,\nThe Noon Team."
+    }
+  ]
+},
    {
      "title": "K.B Links",
      "icon": "fas fa-swatchbook",
@@ -615,6 +661,20 @@ const pagesData = [
          "heading": "Raised Wrong Complaint after Sharing the images",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nWe have received your inquiry regarding order number (______). We sincerely apologize for this issue and confirm that this is not the norm for Noon. We always strive to improve our services to provide the best for our valued customers.\n\nPlease be informed that a complaint has been raised regarding the wrong order, and all details have been clarified to the relevant department with the attached files.\n\nYou will be provided with updates within a maximum period of (3 days) from the date of submitting the complaint, as the relevant department will investigate and resolve the matter, and you will be contacted directly.\n\nFor further assistance, feel free to contact our customer service team at: Egypt@noon.com.\n\nThank you,\nNoon Team."
        }
+     ]
+   },
+      {
+     "title": "Wrong or Missing SN In the Invoice",
+     "icon": "fas fa-xmark",
+     "templates": [
+      {
+  "heading": "Asking Wrong SN Questions",
+  "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), we kindly ask you to clarify the following:\n\nWhat is the correct serial number found on the actual device.\n\nPlease send clear pictures of the device and the product box showing the serial number clearly.\n\nFor further assistance, please do not hesitate to contact our Customer Care team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+},
+{
+  "heading": "Raised Wrong or Missing SN Complaint",
+  "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), we sincerely apologize for this issue. Please be informed that a complaint has been raised concerning the serial number on the invoice, and all relevant details and files have been shared with the concerned department.\n\nYou will receive updates within a maximum of (3 days) from the date the complaint was submitted. The concerned department will investigate and resolve the matter, and you will be contacted directly.\n\nFor further assistance, please do not hesitate to contact our Customer Care team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+},
      ]
    },
    {
@@ -1045,7 +1105,7 @@ const pagesData = [
 
 /* Complaint Or Request */
 {
- "title": "Complaint Or Request",
+ "title": "Complaint / Request",
  "icon": "fas fa-hand",
  "tabs": [
    {
@@ -1102,6 +1162,10 @@ const pagesData = [
          "heading": "Follow Up on a Request",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nWe have received your inquiry regarding order number (______). Please note that a request has already been submitted, and I have updated it to expedite the process for you.\n\nYou will be provided with updates within a maximum of (00 days) from the date of raising the request, as the concerned department will review and resolve the matter, and you will be contacted directly.\n\nFor further assistance, feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
        },
+       {
+  "heading": "Follow Up on a Request ASAP",
+  "content": "Hala,\n\nThank you for choosing Noon!\n\nWe have received your inquiry regarding order number (______). Please be informed that a request has already been submitted, and I have updated it from my side to expedite the process for you.\n\nYou will receive updates as soon as possible, as the concerned team will review the case and resolve it, God willing, and they will contact you directly.\n\nFor further assistance, please do not hesitate to contact our Customer Care team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+},
        {
          "heading": "Re Raised a Request",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nWe have received your inquiry regarding order number (______). Please note that the request has been re-raised, and all details have been clarified to the concerned department.\n\nYou will be provided with updates within a maximum of (00 days) from the date of raising the request, as the concerned department will review and resolve the matter, and you will be contacted directly.\n\nFor further assistance, feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
@@ -1516,7 +1580,21 @@ const pagesData = [
        {
          "heading": "Undeliverable 3 Attempt Failed Noon Credit",
          "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (____), we apologize for any inconvenience you may have faced. After reviewing your order, it was found that the order has been canceled due to the exhaustion of delivery attempts. We would like to clarify that we attempt to deliver the order three times, and if delivery is not possible in all attempts, the order is automatically canceled.\n\nPlease note that the cancellation status will be reflected in your account once the product is received in our warehouses.\n\nAs for the paid amount, it will be refunded to your Noon Wallet within a maximum of 3 days after the cancellation is reflected in your account.\n\nSince the payment was made using Noon Credit, the amount will remain in your Noon Wallet, and you can use it to place a new order at any time, as Noon Credit remains valid for a lifetime.\n\nTo use Noon Credit, you can select the appropriate option when choosing the payment method after selecting the address, by checking the option (Use My Noon Credit).\n\nPlease note that after canceling the order, it will not be possible to reship or redeliver it. However, you can easily create a new order to obtain the products you desire.\n\nFor further assistance, feel free to contact our customer service team at Egypt@noon.com.\n\nThank you,\nNoon Team."
-       }
+       },
+
+{
+  "heading": "Undeliverable Collection Point Attempt Failed Prepaid Auto Transfer Not Done",
+  "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), we apologize for any inconvenience you may have faced. After review, it was found that the order was canceled due to not being collected from the Collection Point within the specified timeframe.\n\nPlease be aware that the order is kept at the Collection Point for only 5 days, and if it is not collected during this period, the shipment is automatically returned to Noon warehouses, the order is canceled, and a full refund is issued.\n\nAs for the paid amount, it will be refunded to your Noon Wallet within a maximum of 3 days after the cancellation is reflected in your account.\n\nThen it will be automatically transferred to your bank account After 24 hours, and it takes between 5 to 7 business days according to your bank’s policy.\n\nPlease note that business days do not include holidays and official days off, such as Friday and Saturday.\n\nPlease note that after the order is canceled, it will not be possible to reship or redeliver it. However, you can easily create a new order to get the products you want.\n\nFor further assistance, please do not hesitate to contact our Customer Care team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+},
+{
+  "heading": "Undeliverable Collection Point Attempt Failed Prepaid Auto Transfer Done",
+  "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), we apologize for any inconvenience you may have faced. After review, it was found that the order was canceled due to not being collected from the Collection Point within the specified timeframe.\n\nPlease be aware that the order is kept at the Collection Point for only 5 days, and if it is not collected during this period, the shipment is automatically returned to Noon warehouses, the order is canceled, and a full refund is issued.\n\nAs for the paid amount, it will be refunded to your Noon Wallet within a maximum of 3 days after the cancellation is reflected in your account.\n\nAfter review, it has been confirmed that this has already been done, and an automatic transfer request was created to your bank account on (____).\n\nIt will be processed within a period ranging between 5 to 7 business days, based on your bank’s policy.\n\nPlease note that business days do not include holidays and official days off, such as Friday and Saturday.\n\nPlease note that after the order is canceled, it will not be possible to reship or redeliver it. However, you can easily create a new order to get the products you want.\n\nFor further assistance, please do not hesitate to contact our Customer Care team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+},
+{
+  "heading": "Undeliverable Collection Point Attempt Failed Valu",
+  "content": "Hala,\n\nThank you for choosing Noon!\n\nRegarding your order number (_____), we apologize for any inconvenience you may have faced. After review, it was found that the order was canceled due to not being collected from the Collection Point within the specified timeframe.\n\nPlease be aware that the order is kept at the Collection Point for only 5 days, and if it is not collected during this period, the shipment is automatically returned to Noon warehouses, the order is canceled, and a full refund is issued.\n\nAs for the paid amount, it will be refunded within a maximum of 3 days after the cancellation is reflected in your account, since when paying via \"Valu\", the money is refunded directly to the payment source (\"Valu\").\n\nPlease note that after the order is canceled, it will not be possible to reship or redeliver it. However, you can easily create a new order to get the products you want.\n\nFor further assistance, please do not hesitate to contact our Customer Care team at Egypt@noon.com.\n\nThank you,\nNoon Team."
+}
+
      ]
    },
    {
@@ -1590,9 +1668,9 @@ const pagesData = [
 
 
 
-/* Locker & Collection Point */
+/* Locker / Collection Point */
 {
- "title": "Locker & Collection Point",
+ "title": "Locker / Collection Point",
  "icon": "fas fa-door-closed",
  "tabs": [
    {
