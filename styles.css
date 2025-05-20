@@ -726,7 +726,7 @@ nav {
 #backToTop {
   position: fixed;
   bottom: 30px;
-  left: 30px;
+  right: 30px;
   width: 45px; /* Reduced from 50px */
   height: 45px; /* Reduced from 50px */
   background-color: var(--accent-primary);
