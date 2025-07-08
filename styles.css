@@ -15,14 +15,16 @@
   --scrollbar-thumb: #4f5255;
   --scrollbar-track: #2c2f33;
   
-  --nav-bg: rgba(28, 30, 33, 0.85); 
-  --nav-priority-bg: rgba(22, 24, 26, 0.92); /* Slightly darker and more opaque for priority section */
-  --bg-secondary: rgba(35, 38, 41, 0.8);
-  --bg-tertiary: rgba(44, 47, 51, 0.85);
-  --card-bg: rgba(40, 43, 48, 0.75);
-  --card-hover: rgba(50, 53, 58, 0.85);
-  --tab-inactive: rgba(44, 47, 51, 0.6);
+  /* --- Modified Colors (Darker Theme) --- */
+  --nav-bg: rgba(26, 26, 29, 0.88); /* أغمق قليلاً مع شفافية أعلى */
+  --nav-priority-bg: rgba(20, 20, 22, 0.94); /* أغمق بشكل ملحوظ */
+  --bg-secondary: rgba(30, 32, 36, 0.85);
+  --bg-tertiary: rgba(38, 41, 46, 0.9);
+  --card-bg: rgba(34, 37, 41, 0.8); /* خلفية الكروت أغمق */
+  --card-hover: rgba(44, 48, 53, 0.9);
+  /* --- End of Modified Colors --- */
   
+  --tab-inactive: rgba(44, 47, 51, 0.6);
   --border-radius: 4px;
   --hover-transition: all 0.3s ease-in-out;
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
@@ -214,17 +216,21 @@ nav#mainNav {
   transform: translateX(5px) scale(1.02); 
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
+
+#navbar li a:hover i, #navbar li a.active i,
+#priorityNavSection ul li a:hover i, #priorityNavSection ul li a.active i {
+  transform: scale(1.1);
+  color: var(--bg-primary) !important; /* Ensure icon color changes on hover/active */
+}
+
+
 #navbar li a i, #priorityNavSection ul li a i {
   margin-right: 10px; 
   margin-left: 0;
   width: 18px;
   text-align: center;
   font-size: 0.95rem;
-  transition: transform 0.3s ease-in-out;
-}
-#navbar li a:hover i, #navbar li a.active i,
-#priorityNavSection ul li a:hover i, #priorityNavSection ul li a.active i {
-  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 .divider {
@@ -423,11 +429,11 @@ direction: ltr;
   font-size: 0.9rem;
   transition: var(--hover-transition);
 }
-.tabm-button[lang="en"] { 
+.tabm-button[lang="ar"] { 
     font-family: 'Cairo', sans-serif;
-    direction: ltr; 
+    direction: rtl; 
 }
-.tabm-button[lang="en"] i {
+.tabm-button[lang="ar"] i {
     margin-left: 6px; 
     margin-right: 0;
 }
@@ -508,8 +514,8 @@ direction: ltr;
   direction: ltr; 
   font-family: 'Roboto', 'Cairo', sans-serif;
 }
-.template-item h4[dir="ltr"] { 
-    direction: ltr;
+.template-item h4[dir="rtl"] { 
+    direction: rtl;
     font-family: 'Cairo', sans-serif;
 }
 
@@ -529,8 +535,8 @@ direction: ltr;
   transition: var(--hover-transition);
   /* Direction set by JS */
 }
-.template-item textarea[dir="ltr"] {
-font-family: 'Roboto', 'Cairo', sans-serif;
+.template-item textarea[dir="rtl"] {
+  font-family: 'Cairo', sans-serif; 
 }
 .template-item textarea[dir="ltr"] { 
   font-family: 'Roboto', sans-serif; 
@@ -577,14 +583,14 @@ font-family: 'Roboto', 'Cairo', sans-serif;
   transition: background-color 0.3s ease-in-out;
   direction: ltr; 
 }
-/* Template List Title (ltr as requested) */
+/* Template List Title (RTL as requested) */
 .templates-title {
   color: var(--accent-primary);
   margin-bottom: 12px;
   font-size: 1.1rem;
-  text-align: left; 
-  direction: ltr; 
-font-family: 'Roboto', 'Cairo', sans-serif;
+  text-align: right; 
+  direction: rtl; 
+  font-family: 'Cairo', sans-serif; 
   transition: color 0.3s ease-in-out;
 }
 .template-search-box {
@@ -597,7 +603,7 @@ font-family: 'Roboto', 'Cairo', sans-serif;
   color: var(--text-primary);
   font-family: 'Roboto', 'Cairo', sans-serif; 
   font-size: 0.9rem;
-  direction: ltr; 
+  direction: rtl; 
   transition: var(--hover-transition);
 }
 .template-search-box:focus {
@@ -636,7 +642,7 @@ font-family: 'Roboto', 'Cairo', sans-serif;
 }
 .links-container a[lang="ar"] { 
     font-family: 'Cairo', sans-serif;
-    direction: ltr;
+    direction: rtl;
 }
 .links-container a[lang="ar"] i {
     margin-left: 6px; 
@@ -702,7 +708,7 @@ font-family: 'Roboto', 'Cairo', sans-serif;
 }
 .vertical-tab-button[lang="ar"] { 
     font-family: 'Cairo', sans-serif;
-    direction: ltr;
+    direction: rtl;
 }
 .vertical-tab-button[lang="ar"] i {
     margin-left: 6px;
@@ -751,7 +757,7 @@ font-family: 'Roboto', 'Cairo', sans-serif;
 }
 .queries-table td[lang="ar"] { 
     font-family: 'Cairo', sans-serif;
-    direction: ltr;
+    direction: rtl;
     text-align: right;
 }
 .queries-table td[lang="ar"] .copy-word-btn { 
@@ -1071,7 +1077,7 @@ color: var(--accent-primary);
   font-style: italic;
   margin-top: 10px;
   transition: opacity 0.3s ease-in-out;
-  direction: ltr; 
+  direction: rtl; 
   font-family: 'Cairo', sans-serif;
 }
 
@@ -1211,7 +1217,7 @@ color: var(--accent-primary);
       right: 10px; 
       left: auto;
       max-width: calc(100% - 20px); 
-      direction: ltr; 
+      direction: rtl; 
   }
   .notification-icon {
     margin-left: 12px; 
