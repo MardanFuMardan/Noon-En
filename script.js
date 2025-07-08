@@ -41,7 +41,7 @@ blockTitle: "Internal Tools",
     {
 blockTitle: "3PL Tools",
     tools: [
-      { id: 'tool1', title: 'Egyption jt Express Tracker', description: 'Egyption jt Express Tracker, Just Put The AWB Number', url: 'https://www.jtexpress-eg.com/trajectoryQuery?waybillNo=', icon: 'fas fa-compass' },
+      { id: 'tool1', title: 'Egyption jt Express Tracker', description: 'Egyption jt Express Tracker, Just Put The AWB Number', url: 'https://jt-express.vercel.app/', icon: 'fas fa-compass' },
 ]
   },
   
