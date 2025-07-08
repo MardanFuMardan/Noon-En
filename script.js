@@ -37,14 +37,12 @@ blockTitle: "Internal Tools",
       { id: 'tool1', title: 'Emilyyy', description: 'Sivvi internal portal used for managing orders, tickets, and tracking customer inquiries.', url: 'https://support.sv.noon.team/', icon: 'fas fa-chart-simple' },
 ]
   },
-  
-    {
+      {
 blockTitle: "3PL Tools",
     tools: [
       { id: 'tool1', title: 'Egyption jt Express Tracker', description: 'Egyption jt Express Tracker, Just Put The AWB Number', url: 'https://jt-express.vercel.app/', icon: 'fas fa-compass' },
 ]
   },
-  
   {
 blockTitle: "External Help Tools",
     tools: [
@@ -170,6 +168,10 @@ function initEventListeners() {
 }
 
 function generatePagesAndNav() {
+  // --- New Feature: Colored Icons ---
+  const iconColors = ['#82aaff', '#c792ea', '#ffcb6b', '#f78c6c', '#89ddff', '#c3e88d', '#ff5370', '#FF966C'];
+  // --- End of New Feature ---
+  
   navbarList.innerHTML = ''; 
   priorityNavSection.innerHTML = ''; 
   const priorityUl = document.createElement('ul');
@@ -199,9 +201,13 @@ function generatePagesAndNav() {
 
     const navItem = document.createElement("li");
     navItem.id = `nav-item-${pageId}`; 
-    navItem.style.setProperty('--item-index', navItemIndexCounter++); 
-    navItem.innerHTML = `<a href="#${pageId}" data-target-id="${pageId}"><i class="${page.icon}"></i> ${page.title}</a>`;
+    navItem.style.setProperty('--item-index', navItemIndexCounter++);
     
+    // --- Modified to add icon colors ---
+    const color = iconColors[index % iconColors.length];
+    navItem.innerHTML = `<a href="#${pageId}" data-target-id="${pageId}"><i class="${page.icon}" style="color: ${color};"></i> ${page.title}</a>`;
+    // --- End of modification ---
+
     if (priorityPageIdsOrder.includes(page.id)) {
         priorityUl.appendChild(navItem);
     } else {
@@ -325,12 +331,12 @@ function generateStandardTab(tabContent, tab, pageId, tabIndex) {
 
   const templatesTitle = document.createElement("h3");
   templatesTitle.className = "templates-title";
-  templatesTitle.textContent = "Templates List"; 
+  templatesTitle.textContent = "قائمة القوالب"; 
   
   const searchBoxEl = document.createElement("input"); 
   searchBoxEl.type = "text";
   searchBoxEl.id = `templateSearch-${pageId}-${tabIndex}`;
-  searchBoxEl.placeholder = "Search in Templates..."; 
+  searchBoxEl.placeholder = "ابحث في القوالب..."; 
   searchBoxEl.className = "template-search-box";
 
   const linksContainer = document.createElement("div");
@@ -377,7 +383,7 @@ function generateStandardTab(tabContent, tab, pageId, tabIndex) {
     if (pageId === essentialPointsPageId) {
         textarea.dir = "ltr";
     } else {
-        textarea.dir = "ltr"; 
+        textarea.dir = "rtl"; 
     }
     textarea.readOnly = true; 
     textarea.textContent = template.content;
