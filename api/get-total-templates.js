@@ -1,12 +1,10 @@
 // api/get-total-templates.js
 
-// ملاحظة: Vercel يسمح لنا باستيراد البيانات هكذا في بيئة الخادم
-import { pagesData } from '../../templates.js'; 
+import { pagesData } from '../templates.js'; // تم تعديل هذا السطر
 
 export default function handler(request, response) {
   try {
     let totalCount = 0;
-    // نفس الكود الذي استخدمناه في الـ Console، لكنه الآن يعمل على الخادم
     pagesData.forEach(page => {
       if (page.tabs) {
         page.tabs.forEach(tab => {
