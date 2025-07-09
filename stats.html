@@ -8,12 +8,18 @@
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #121212; color: #e0e0e0; margin: 0; padding: 20px; }
         #container { max-width: 1000px; margin: 20px auto; background-color: #1e1e1e; padding: 25px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        h1 { color: #ffc107; text-align: center; border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 30px; }
+        h1, h2 { color: #ffc107; text-align: center; border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 30px; }
+        h2 { margin-top: 50px; font-size: 1.5rem; }
         #password-container { text-align: center; margin-top: 40px; }
         #password-container input { padding: 12px; font-size: 1rem; width: 250px; margin-right: 10px; border-radius: 4px; border: 1px solid #444; background: #2c2f33; color: #fff; }
         #password-container button { padding: 12px 24px; font-size: 1rem; cursor: pointer; background-color: #ffc107; color: #121212; border: none; border-radius: 4px; font-weight: bold; }
         .loader { text-align: center; padding: 40px; font-size: 1.2rem; color: #888; }
-        #chart-container { display: none; }
+        #dashboard-content { display: none; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #333; }
+        th { background-color: #333; color: #ffc107; }
+        tr:hover { background-color: #2a2a2a; }
+        td:last-child { font-weight: bold; font-size: 1.1em; color: #ffc107; }
     </style>
 </head>
 <body>
@@ -25,9 +31,16 @@
             <button onclick="loadStats()">View Stats</button>
         </div>
 
-        <div id="chart-container">
-            <canvas id="usageChart"></canvas>
-        </div>
+        <div id="dashboard-content">
+            <div id="chart-container">
+                <canvas id="usageChart"></canvas>
+            </div>
+            
+            <div id="full-report-container">
+                <h2>Full Report (All Templates)</h2>
+                <div id="full-table-container"></div>
+            </div>
+            </div>
         <div id="error-container" style="color:red; text-align:center; padding: 20px;"></div>
     </div>
 
@@ -36,7 +49,7 @@
             const passwordInput = document.getElementById('password');
             const password = passwordInput.value;
             
-            const SECRET_KEY = "@Noon@54321";
+            const SECRET_KEY = "ChangeThisToYourSuperSecretPassword123!"; // <-- تذكر تغيير كلمة المرور هذه
 
             if (password !== SECRET_KEY) {
                 alert('Incorrect Access Key!');
@@ -44,8 +57,7 @@
             }
 
             document.getElementById('password-container').style.display = 'none';
-            const chartContainer = document.getElementById('chart-container');
-            chartContainer.style.display = 'block';
+            document.getElementById('dashboard-content').style.display = 'block';
             
             try {
                 const response = await fetch('/api/get-stats');
@@ -57,55 +69,69 @@
                      return;
                 }
 
-                // 3. معالجة البيانات وتجهيزها للرسم البياني
-                const sortedStats = Object.entries(stats).sort(([, a], [, b]) => b - a).slice(0, 15); // عرض أعلى 15 فقط
+                // --- تعديل منطق البيانات ---
+                // 1. نحصل على كل البيانات مرتبة
+                const allSortedStats = Object.entries(stats).sort(([, a], [, b]) => b - a);
+                
+                // 2. نأخذ أعلى 15 للرسم البياني
+                const top15Stats = allSortedStats.slice(0, 15);
 
-                const labels = sortedStats.map(item => item[0]);
-                const dataPoints = sortedStats.map(item => item[1]);
+                // --- بناء الرسم البياني (باستخدام بيانات أعلى 15) ---
+                renderChart(top15Stats);
 
-                // 4. إنشاء الرسم البياني الجديد
-                const ctx = document.getElementById('usageChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'bar', // نوع الرسم: شريطي
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Copy/Selection Count',
-                            data: dataPoints,
-                            backgroundColor: 'rgba(255, 193, 7, 0.5)',
-                            borderColor: 'rgba(255, 193, 7, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        indexAxis: 'y', // جعل الأعمدة أفقية لتسهيل القراءة
-                        responsive: true,
-                        plugins: {
-                            legend: { display: false },
-                            title: {
-                                display: true,
-                                text: 'Top 15 Most Used Templates',
-                                color: '#f5f5f7',
-                                font: { size: 18 }
-                            }
-                        },
-                        scales: {
-                            x: {
-                                beginAtZero: true,
-                                ticks: { color: '#b0b3b8' },
-                                grid: { color: 'rgba(255, 255, 255, 0.1)' }
-                            },
-                            y: {
-                                ticks: { color: '#b0b3b8' },
-                                grid: { display: false }
-                            }
-                        }
-                    }
-                });
+                // --- بناء الجدول الكامل (باستخدام كل البيانات) ---
+                renderFullTable(allSortedStats);
 
             } catch (error) {
                 document.getElementById('error-container').innerText = `Error loading stats: ${error.message}`;
             }
+        }
+
+        function renderChart(data) {
+            const labels = data.map(item => item[0]);
+            const dataPoints = data.map(item => item[1]);
+
+            const ctx = document.getElementById('usageChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Copy/Selection Count',
+                        data: dataPoints,
+                        backgroundColor: 'rgba(255, 193, 7, 0.5)',
+                        borderColor: 'rgba(255, 193, 7, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: 'Top 15 Most Used Templates',
+                            color: '#f5f5f7',
+                            font: { size: 18 }
+                        }
+                    },
+                    scales: {
+                        x: { beginAtZero: true, ticks: { color: '#b0b3b8' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+                        y: { ticks: { color: '#b0b3b8' }, grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function renderFullTable(data) {
+            const tableContainer = document.getElementById('full-table-container');
+            let tableHTML = '<table><tr><th>Template Name</th><th>Count</th></tr>';
+            for (const [name, count] of data) {
+                tableHTML += `<tr><td>${name}</td><td>${count}</td></tr>`;
+            }
+            tableHTML += '</table>';
+            tableContainer.innerHTML = tableHTML;
         }
         
         document.getElementById('password').addEventListener('keyup', function(event) {
