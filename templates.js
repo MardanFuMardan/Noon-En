@@ -1,5 +1,6 @@
 /* templates.js - Updated V2.1 */
-const pagesData = [
+export const pagesData = [
+
   // Priority items - their order here dictates their order in the priority section
   {
     id: "important_tools", 
