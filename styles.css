@@ -533,6 +533,7 @@ direction: ltr;
   font-size: 0.9rem;
   line-height: 1.6;
   transition: var(--hover-transition);
+  direction: ltr;
   /* Direction set by JS */
 }
 .template-item textarea[dir="rtl"] {
