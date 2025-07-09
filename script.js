@@ -1,4 +1,4 @@
-/* * Ultimate Noon Templates Mail Ar - Enhanced V2.1
+/* * Ultimate Noon Templates Mail Ar - Enhanced V2.2 (with Global Tracking)
  * Enhanced JavaScript with on-scroll animations, smooth scrolling, and UI fixes
  */
 
@@ -64,10 +64,68 @@ function initializeApp() {
   const initialPageId = appState.currentPageId || 'important-tools'; 
   showPage(initialPageId, true); 
   initEventListeners();
-showNotification('success', '😎 Loaded Like a Pro', 'Templates are in. Time to roll!');
+  showNotification('success', '😎 Loaded Like a Pro', 'Templates are in. Time to roll!');
   applySmoothScrollToLinks();
   document.documentElement.setAttribute('dir', 'ltr'); 
 }
+
+// =================================================================
+// ==============  GLOBAL USAGE TRACKING FUNCTIONS  ==============
+// =================================================================
+
+/**
+ * Sends tracking data to the serverless API endpoint.
+ * @param {string} templateName - The name of the template being tracked.
+ */
+async function trackTemplateUsage(templateName) {
+  try {
+    await fetch('/api/track', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ templateName: templateName }),
+    });
+    console.log(`Tracked usage for: ${templateName}`);
+  } catch (error) {
+    console.error('Failed to send tracking data:', error);
+  }
+}
+
+/**
+ * Sets up listeners for manual text selection in textareas to track usage.
+ */
+function initManualSelectionTracking() {
+    let selectionDebounceTimeout;
+
+    // Listen for mouse up event, which indicates the end of a selection
+    document.addEventListener('mouseup', (e) => {
+        if (e.target.tagName.toLowerCase() === 'textarea') {
+            clearTimeout(selectionDebounceTimeout);
+            
+            selectionDebounceTimeout = setTimeout(() => {
+                const selectedText = window.getSelection().toString().trim();
+                // Track only if a meaningful amount of text is selected
+                if (selectedText.length > 10) { 
+                    const templateName = e.target.dataset.templateName;
+                    if (templateName) {
+                        trackTemplateUsage(templateName);
+                    }
+                }
+            }, 1500); // Wait 1.5 seconds after selection to track
+        }
+    });
+
+    // Clear the timeout if the user starts a new selection
+    document.addEventListener('mousedown', (e) => {
+       if (e.target.tagName.toLowerCase() === 'textarea') {
+           clearTimeout(selectionDebounceTimeout);
+       }
+    });
+}
+
+// =================================================================
+// =================================================================
 
 function storeOriginalNavItems() {
   const regularItems = navbarList.querySelectorAll(":scope > li, :scope > .divider"); 
@@ -118,10 +176,8 @@ function animateOnScroll() {
     itemsToAnimate.forEach((item) => { // Removed 'index' as it's no longer needed for delay
         const rect = item.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0 && !item.classList.contains('has-animated')) {
-             // No longer setting item.style.transitionDelay here
              item.classList.add('visible-on-scroll'); 
              item.classList.add('has-animated'); 
-             // The 'transitionend' listener for resetting delay is also not needed
         } 
     });
 } //
@@ -149,7 +205,6 @@ function initEventListeners() {
             item.classList.remove('has-animated', 'visible-on-scroll');
             item.style.opacity = '0'; 
             item.style.transform = 'translateY(20px)'; 
-            // item.style.transitionDelay = ''; // No longer needed as we are not setting it dynamically in animateOnScroll
         }
     });
     animateOnScroll(); 
@@ -165,6 +220,9 @@ function initEventListeners() {
     mainNav.classList.toggle('active');
     mobileMenuToggle.innerHTML = mainNav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
   });
+
+  // Initialize the new selection tracking listeners
+  initManualSelectionTracking();
 }
 
 function generatePagesAndNav() {
@@ -379,6 +437,9 @@ function generateStandardTab(tabContent, tab, pageId, tabIndex) {
     templateDiv.appendChild(heading);
 
     const textarea = document.createElement("textarea");
+    // This is the critical change for tracking manual selection
+    textarea.dataset.templateName = template.heading; 
+
     const essentialPointsPageId = `page-${pagesData.find(p => p.title === "Essential Points")?.id}`;
     if (pageId === essentialPointsPageId) {
         textarea.dir = "ltr";
@@ -427,8 +488,8 @@ function generateQueriesPage(pageDiv, page) {
     copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
     copyBtn.onclick = () => {
       navigator.clipboard.writeText(item.word)
-.then(() => showNotification('success', '📋 Copied Like Magic', `"${item.word}" is now chilling in your clipboard!`))
-.catch(err => showNotification('error', '💥 Copy Failed', 'Tried... but couldn’t copy that word. 🫠'));
+        .then(() => showNotification('success', '📋 Copied Like Magic', `"${item.word}" is now chilling in your clipboard!`))
+        .catch(err => showNotification('error', '💥 Copy Failed', 'Tried... but couldn’t copy that word. 🫠'));
     };
     wordCell.appendChild(copyBtn);
     const wordTextNode = document.createTextNode(` ${item.word}`);
@@ -719,15 +780,19 @@ function showTab(pageId, tabIndex, isInitial = false) {
 }
 
 
+// MODIFIED copyContent to call the new tracking function
 function copyContent(button, title) {
   const textarea = button.parentElement.querySelector('textarea');
   navigator.clipboard.writeText(textarea.textContent)
-.then(() => showNotification('success', '📋 Copied Like Magic', `"${title}" is now chilling in your clipboard!`))
-.catch(err => {
-  console.error('Failed to copy: ', err);
-  showNotification('error', '💥 Copy Failed', 'Tried... but couldn’t copy that content. 🫠');
-});
-
+    .then(() => {
+        showNotification('success', '📋 Copied Like Magic', `"${title}" is now chilling in your clipboard!`);
+        // Send tracking event to the server
+        trackTemplateUsage(title);
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+      showNotification('error', '💥 Copy Failed', 'Tried... but couldn’t copy that content. 🫠');
+    });
 }
 
 function adjustTextareaHeight(textarea) {
@@ -824,13 +889,8 @@ function highlightElement(element) {
   if (!element) return;
 
   // Ensure the element is visible for the highlight.
-  // Adding 'visible-on-scroll' triggers its CSS transition.
   if (!element.classList.contains('visible-on-scroll')) {
     element.classList.add('visible-on-scroll');
-    // 'has-animated' is primarily managed by animateOnScroll.
-    // If animateOnScroll hasn't run, this ensures the transition starts.
-    // If it runs later for this item, it won't re-apply 'visible-on-scroll' if 'has-animated' is set.
-    // For robustness, ensure 'has-animated' is also set if we are forcing visibility here.
     if(!element.classList.contains('has-animated')){
         element.classList.add('has-animated');
     }
