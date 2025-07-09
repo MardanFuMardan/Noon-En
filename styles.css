@@ -534,6 +534,7 @@ direction: ltr;
   line-height: 1.6;
   transition: var(--hover-transition);
   direction: ltr;
+  margin-top: 10px;
   /* Direction set by JS */
 }
 .template-item textarea[dir="rtl"] {
