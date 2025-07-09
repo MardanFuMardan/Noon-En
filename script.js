@@ -237,7 +237,7 @@ function displayTotalTemplateCounter() {
     
     counterContainer.innerHTML = `
         <i class="fas fa-file-alt" style="color: var(--accent-primary); margin-right: 5px;"></i>
-        Total Templates: <strong style="color: var(--text-primary);">${total}</strong>
+        Total En Templates: <strong style="color: var(--text-primary);">${total}</strong>
     `;
 
     // Insert the counter before the "About Us" section
