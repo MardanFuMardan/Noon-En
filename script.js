@@ -1,4 +1,4 @@
-/* * Ultimate Noon Templates Mail Ar - Enhanced V2.2 (with Global Tracking)
+/* * Ultimate Noon Templates Mail Ar - Enhanced V2.3 (with Dynamic Counters)
  * Enhanced JavaScript with on-scroll animations, smooth scrolling, and UI fixes
  */
 
@@ -73,17 +73,11 @@ function initializeApp() {
 // ==============  GLOBAL USAGE TRACKING FUNCTIONS  ==============
 // =================================================================
 
-/**
- * Sends tracking data to the serverless API endpoint.
- * @param {string} templateName - The name of the template being tracked.
- */
 async function trackTemplateUsage(templateName) {
   try {
     await fetch('/api/track', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ templateName: templateName }),
     });
     console.log(`Tracked usage for: ${templateName}`);
@@ -92,31 +86,22 @@ async function trackTemplateUsage(templateName) {
   }
 }
 
-/**
- * Sets up listeners for manual text selection in textareas to track usage.
- */
 function initManualSelectionTracking() {
     let selectionDebounceTimeout;
-
-    // Listen for mouse up event, which indicates the end of a selection
     document.addEventListener('mouseup', (e) => {
         if (e.target.tagName.toLowerCase() === 'textarea') {
             clearTimeout(selectionDebounceTimeout);
-            
             selectionDebounceTimeout = setTimeout(() => {
                 const selectedText = window.getSelection().toString().trim();
-                // Track only if a meaningful amount of text is selected
                 if (selectedText.length > 10) { 
                     const templateName = e.target.dataset.templateName;
                     if (templateName) {
                         trackTemplateUsage(templateName);
                     }
                 }
-            }, 1500); // Wait 1.5 seconds after selection to track
+            }, 1500);
         }
     });
-
-    // Clear the timeout if the user starts a new selection
     document.addEventListener('mousedown', (e) => {
        if (e.target.tagName.toLowerCase() === 'textarea') {
            clearTimeout(selectionDebounceTimeout);
@@ -170,33 +155,28 @@ function debounce(func, wait = 20, immediate = true) {
   };
 }
 
-// MODIFIED: animateOnScroll - Removed dynamic transition-delay
 function animateOnScroll() {
     const itemsToAnimate = document.querySelectorAll('.template-item, .kb-link-card, .tool-card, .queries-table tr, #about-us-page');
-    itemsToAnimate.forEach((item) => { // Removed 'index' as it's no longer needed for delay
+    itemsToAnimate.forEach((item) => {
         const rect = item.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.95 && rect.bottom > 0 && !item.classList.contains('has-animated')) {
              item.classList.add('visible-on-scroll'); 
              item.classList.add('has-animated'); 
         } 
     });
-} //
+}
 
 function initEventListeners() {
   searchBox.addEventListener("input", searchSections);
   searchBox.addEventListener("search", resetSearch); 
-  
   menuToggle.addEventListener('click', toggleDropdownMenu); 
   closeMenuBtn.addEventListener('click', closeDropdownMenu); 
-  
   window.addEventListener('scroll', toggleBackToTopButton);
   window.addEventListener('scroll', debounce(animateOnScroll, 10)); 
   backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
   });
-  
   document.addEventListener('click', handleOutsideClick);
-  
   window.addEventListener('resize', () => {
     document.querySelectorAll('textarea').forEach(adjustTextareaHeight);
     document.querySelectorAll('.has-animated.visible-on-scroll').forEach(item => {
@@ -209,32 +189,70 @@ function initEventListeners() {
     });
     animateOnScroll(); 
   });
-  
   document.addEventListener('input', (e) => {
     if (e.target.tagName.toLowerCase() === 'textarea') {
       adjustTextareaHeight(e.target);
     }
   }, true);
-
   mobileMenuToggle.addEventListener('click', () => {
     mainNav.classList.toggle('active');
     mobileMenuToggle.innerHTML = mainNav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
   });
-
-  // Initialize the new selection tracking listeners
   initManualSelectionTracking();
 }
 
+/**
+ * Calculates the total number of templates from the pagesData object.
+ * @returns {number} The total count of templates.
+ */
+function calculateTotalTemplates() {
+    let totalCount = 0;
+    pagesData.forEach(page => {
+      if (page.tabs) {
+        page.tabs.forEach(tab => {
+          if (tab.templates) {
+            totalCount += tab.templates.length;
+          }
+        });
+      }
+    });
+    return totalCount;
+}
+
+/**
+ * Creates and injects the total template counter into the navigation.
+ */
+function displayTotalTemplateCounter() {
+    const total = calculateTotalTemplates();
+    const counterContainer = document.createElement('div');
+    counterContainer.style.textAlign = 'center';
+    counterContainer.style.padding = '5px 10px';
+    counterContainer.style.margin = '5px 10px';
+    counterContainer.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+    counterContainer.style.borderRadius = '4px';
+    counterContainer.style.fontSize = '0.8rem';
+    counterContainer.style.color = 'var(--text-secondary)';
+    
+    counterContainer.innerHTML = `
+        <i class="fas fa-file-alt" style="color: var(--accent-primary); margin-right: 5px;"></i>
+        Total Templates: <strong style="color: var(--text-primary);">${total}</strong>
+    `;
+
+    // Insert the counter before the "About Us" section
+    const aboutUsDivider = document.querySelector('.divider:last-of-type');
+    if (aboutUsDivider) {
+        aboutUsDivider.parentNode.insertBefore(counterContainer, aboutUsDivider);
+    } else {
+        aboutUsPageLinkContainer.parentNode.insertBefore(counterContainer, aboutUsPageLinkContainer);
+    }
+}
+
 function generatePagesAndNav() {
-  // --- New Feature: Colored Icons ---
   const iconColors = ['#82aaff', '#c792ea', '#ffcb6b', '#f78c6c', '#89ddff', '#c3e88d', '#ff5370', '#FF966C'];
-  // --- End of New Feature ---
-  
   navbarList.innerHTML = ''; 
   priorityNavSection.innerHTML = ''; 
   const priorityUl = document.createElement('ul');
   priorityNavSection.appendChild(priorityUl);
-
   pagesContainer.innerHTML = ''; 
   aboutUsPageLinkContainer.innerHTML = ''; 
 
@@ -256,26 +274,19 @@ function generatePagesAndNav() {
         page.id = page.title.toLowerCase().replace(/\s+/g, '_').replace(/[^a-zA-Z0-9_]/g, '') || `gen_id_${index}`;
     }
     const pageId = page.id === 'important_tools' ? 'important-tools' : `page-${page.id}`; 
-
     const navItem = document.createElement("li");
     navItem.id = `nav-item-${pageId}`; 
     navItem.style.setProperty('--item-index', navItemIndexCounter++);
-    
-    // --- Modified to add icon colors ---
     const color = iconColors[index % iconColors.length];
     navItem.innerHTML = `<a href="#${pageId}" data-target-id="${pageId}"><i class="${page.icon}" style="color: ${color};"></i> ${page.title}</a>`;
-    // --- End of modification ---
-
     if (priorityPageIdsOrder.includes(page.id)) {
         priorityUl.appendChild(navItem);
     } else {
         navbarList.appendChild(navItem);
     }
-    
     if (page.id !== 'important_tools' && page.id !== 'about_us') { 
         createPageContent(pageId, page.title); 
         const pageDiv = document.getElementById(pageId);
-
         if (page.title === "Queries") {
           generateQueriesPage(pageDiv, page);
         } else if (page.title === "Essential Points") {
@@ -296,7 +307,6 @@ function generatePagesAndNav() {
   aboutUsNavLi.id = "nav-item-about-us-page";
   aboutUsNavLi.style.setProperty('--item-index', navItemIndexCounter++);
   aboutUsNavLi.innerHTML = `<a href="#about-us-page" data-target-id="about-us-page"><i class="fas fa-info-circle"></i> About This Project</a>`;
-  
   const aboutUsUl = document.createElement('ul'); 
   aboutUsUl.appendChild(aboutUsNavLi);
   aboutUsPageLinkContainer.appendChild(aboutUsUl);
@@ -313,9 +323,15 @@ function generatePagesAndNav() {
       }
   }
 
+  // Call the new function to display the counter
+  displayTotalTemplateCounter();
+
   storeOriginalNavItems(); 
   applySmoothScrollToLinks(); 
 }
+
+// ... the rest of your functions (createPageContent, generateStandardPage, etc.) remain unchanged ...
+// Make sure to include all of them here. For brevity, I'm omitting them, but you should have them.
 
 function createPageContent(pageId, pageTitle) {
     let pageDiv = document.getElementById(pageId);
@@ -437,7 +453,6 @@ function generateStandardTab(tabContent, tab, pageId, tabIndex) {
     templateDiv.appendChild(heading);
 
     const textarea = document.createElement("textarea");
-    // This is the critical change for tracking manual selection
     textarea.dataset.templateName = template.heading; 
 
     const essentialPointsPageId = `page-${pagesData.find(p => p.title === "Essential Points")?.id}`;
@@ -612,7 +627,7 @@ function generateAboutUsPageContent() {
 
     aboutPageDiv.innerHTML = `
         <h2>About This Project</h2>
-        <p>Welcome to "Ultimate Noon Templates Mail Ar - Enhanced V2.2"! This project is the culmination of dedicated individual effort by <span class="highlight">Mahmoud Ali</span>, aimed at providing a comprehensive and user-friendly platform for Noon's customer service agents to quickly access and utilize standardized email templates and essential resources.</p>
+        <p>Welcome to "Ultimate Noon Templates Mail Ar - Enhanced V2.3"! This project is the culmination of dedicated individual effort by <span class="highlight">Mahmoud Ali</span>, aimed at providing a comprehensive and user-friendly platform for Noon's customer service agents to quickly access and utilize standardized email templates and essential resources.</p>
         <h3>Project Vision & Goals:</h3>
         <p>The primary vision was to streamline the workflow for agents, reduce response times, and ensure consistency in customer communications. Key goals included:</p>
         <ul>
@@ -646,7 +661,7 @@ function generateAboutUsPageContent() {
             <li><strong>State Persistence:</strong> Remembers the last viewed page and tab using localStorage.</li>
         </ul>
         <h3>Future Enhancements (Potential):</h3>
-        <p>While this version (V2.2) is a significant step, potential future ideas include: multi-language support for the UI itself, user accounts for personalized settings, and integration with more Noon-specific APIs if available.</p>
+        <p>While this version (V2.3) is a significant step, potential future ideas include: multi-language support for the UI itself, user accounts for personalized settings, and integration with more Noon-specific APIs if available.</p>
         <h3>Acknowledgement:</h3>
         <p>This project is a testament to what can be achieved with passion, dedication, and the smart use of modern tools. Thank you for using it!</p>
         <div class="contact-info">
@@ -660,12 +675,11 @@ function clearActiveStatesAndAnimations() {
     document.querySelectorAll('.tabsm').forEach(p => {
         p.style.display = 'none';
         p.classList.remove('active-page');
-        // Query for the actual items that get animated
         p.querySelectorAll('.template-item, .kb-link-card, .tool-card, .queries-table tr, #about-us-page').forEach(item => { 
             item.classList.remove('visible-on-scroll', 'has-animated');
             item.style.opacity = '0'; 
             item.style.transform = 'translateY(20px)'; 
-            item.style.transitionDelay = ''; // Ensure delay is reset
+            item.style.transitionDelay = '';
         });
     });
     document.querySelectorAll('#navbar li a, #priorityNavSection ul li a, #aboutUsPageLinkContainer li a').forEach(item => item.classList.remove('active'));
@@ -748,7 +762,7 @@ function showTab(pageId, tabIndex, isInitial = false) {
         item.classList.remove('visible-on-scroll', 'has-animated');
         item.style.opacity = '0'; 
         item.style.transform = 'translateY(20px)';
-        item.style.transitionDelay = ''; // Reset any delays
+        item.style.transitionDelay = '';
     });
   });
   tabButtons.forEach(button => button.classList.remove('active'));
@@ -779,14 +793,11 @@ function showTab(pageId, tabIndex, isInitial = false) {
   localStorage.setItem('currentTabs', JSON.stringify(appState.currentTabs));
 }
 
-
-// MODIFIED copyContent to call the new tracking function
 function copyContent(button, title) {
   const textarea = button.parentElement.querySelector('textarea');
   navigator.clipboard.writeText(textarea.textContent)
     .then(() => {
         showNotification('success', '📋 Copied Like Magic', `"${title}" is now chilling in your clipboard!`);
-        // Send tracking event to the server
         trackTemplateUsage(title);
     })
     .catch(err => {
@@ -884,30 +895,24 @@ function toggleBackToTopButton() {
   }
 }
 
-// MODIFIED: highlightElement - Simplified visibility logic
 function highlightElement(element) {
   if (!element) return;
-
-  // Ensure the element is visible for the highlight.
   if (!element.classList.contains('visible-on-scroll')) {
     element.classList.add('visible-on-scroll');
     if(!element.classList.contains('has-animated')){
         element.classList.add('has-animated');
     }
   } else if (getComputedStyle(element).opacity === '0') {
-    // Fallback if it has the class but is still not opaque
     element.style.opacity = '1';
     element.style.transform = 'translateY(0px)';
   }
-  
   element.classList.remove('highlight-animation'); 
   void element.offsetWidth; 
-
   element.classList.add('highlight-animation');
   setTimeout(() => {
     element.classList.remove('highlight-animation');
   }, 1200); 
-} //
+} 
 
 
 function showNotification(type, title, message) {
