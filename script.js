@@ -1,3 +1,5 @@
+import { pagesData } from './templates.js';
+
 /* * Ultimate Noon Templates Mail Ar - Enhanced V2.3 (with Dynamic Counters)
  * Enhanced JavaScript with on-scroll animations, smooth scrolling, and UI fixes
  */
