@@ -19,7 +19,7 @@
   --nav-bg: rgba(26, 26, 29, 0.88); /* أغمق قليلاً مع شفافية أعلى */
   --nav-priority-bg: rgba(20, 20, 22, 0.94); /* أغمق بشكل ملحوظ */
   --bg-secondary: rgba(30, 32, 36, 0.85);
-  --bg-tertiary: rgba(38, 41, 46, 0.9);
+  --bg-tertiary: rgb(24 26 28 / 90%);
   --card-bg: rgba(34, 37, 41, 0.8); /* خلفية الكروت أغمق */
   --card-hover: rgba(44, 48, 53, 0.9);
   /* --- End of Modified Colors --- */
