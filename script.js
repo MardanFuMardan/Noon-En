@@ -551,7 +551,7 @@ function generateAboutUsPageContent() {
 
     aboutPageDiv.innerHTML = `
         <h2>About This Project</h2>
-        <p>Welcome to "Ultimate Noon Templates Mail Ar - Enhanced V2.1"! This project is the culmination of dedicated individual effort by <span class="highlight">Mahmoud Ali</span>, aimed at providing a comprehensive and user-friendly platform for Noon's customer service agents to quickly access and utilize standardized email templates and essential resources.</p>
+        <p>Welcome to "Ultimate Noon Templates Mail Ar - Enhanced V2.2"! This project is the culmination of dedicated individual effort by <span class="highlight">Mahmoud Ali</span>, aimed at providing a comprehensive and user-friendly platform for Noon's customer service agents to quickly access and utilize standardized email templates and essential resources.</p>
         <h3>Project Vision & Goals:</h3>
         <p>The primary vision was to streamline the workflow for agents, reduce response times, and ensure consistency in customer communications. Key goals included:</p>
         <ul>
@@ -585,7 +585,7 @@ function generateAboutUsPageContent() {
             <li><strong>State Persistence:</strong> Remembers the last viewed page and tab using localStorage.</li>
         </ul>
         <h3>Future Enhancements (Potential):</h3>
-        <p>While this version (V2.1) is a significant step, potential future ideas include: multi-language support for the UI itself, user accounts for personalized settings, and integration with more Noon-specific APIs if available.</p>
+        <p>While this version (V2.2) is a significant step, potential future ideas include: multi-language support for the UI itself, user accounts for personalized settings, and integration with more Noon-specific APIs if available.</p>
         <h3>Acknowledgement:</h3>
         <p>This project is a testament to what can be achieved with passion, dedication, and the smart use of modern tools. Thank you for using it!</p>
         <div class="contact-info">
