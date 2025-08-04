@@ -654,7 +654,7 @@ function generateAboutUsPageContent() {
             <li><strong>State Persistence:</strong> Remembers the last viewed page and tab using localStorage.</li>
         </ul>
         <h3>Future Enhancements (Potential):</h3>
-        <p>While this version (V2.3) is a significant step, potential future ideas include: multi-language support for the UI itself, user accounts for personalized settings, and integration with more Noon-specific APIs if available.</p>
+        <p>While this version (V2.2) is a significant step, potential future ideas include: multi-language support for the UI itself, user accounts for personalized settings, and integration with more Noon-specific APIs if available.</p>
         <h3>Acknowledgement:</h3>
         <p>This project is a testament to what can be achieved with passion, dedication, and the smart use of modern tools. Thank you for using it!</p>
         <div class="contact-info">
@@ -993,5 +993,6 @@ function handleSmoothScrollLinkClick(event) {
 window.showPage = showPage;
 window.showTab = showTab;
 window.copyContent = copyContent;
+
 
 
