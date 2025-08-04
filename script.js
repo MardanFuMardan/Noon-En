@@ -43,7 +43,7 @@ blockTitle: "External Help Tools",
       { id: 'tool2', title: 'Clipboard History', description: 'A tool that saves your full clipboard history and creates text shortcuts to speed up typing and easily retrieve copied content anytime.', url: 'https://chromewebstore.google.com/detail/clipboard-history-pro-%E2%80%93-b/ajiejmhbejpdgkkigpddefnjmgcbkenk', icon: 'fas fa-copy' },
       { id: 'tool3', title: 'Dublicate Links Analyzer', description: 'A tool that analyzes text to detect and highlight repeated links for easier cleanup and organization.', url: 'https://dublicate-links.vercel.app', icon: 'fas fa-magnifying-glass-chart' },
     ]
-  }
+  },
 ];
 
 // Initialize App
@@ -993,4 +993,5 @@ function handleSmoothScrollLinkClick(event) {
 window.showPage = showPage;
 window.showTab = showTab;
 window.copyContent = copyContent;
+
 
