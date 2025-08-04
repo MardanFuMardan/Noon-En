@@ -30,15 +30,6 @@ const appState = {
 
 // Important Tools Data - Restructured for Blocks
 const importantToolsData = [
-  {
-blockTitle: "Internal Tools",
-    tools: [
-      { id: 'tool1', title: 'Agentone', description: 'An internal portal used for managing orders, tickets, and tracking customer inquiries.', url: 'https://agentone.noon.team/', icon: 'fas fa-chart-line' },
-      { id: 'tool2', title: 'Aftersales', description: 'An internal tool used to manage after-sales cases like returns.', url: 'https://aftersales.noon.team/', icon: 'fas fa-masks-theater' },
-      { id: 'tool3', title: 'Express Control', description: 'An internal tool used to manage and monitor Noon Express delivery operations.', url: 'https://express-control.noon.team/', icon: 'fas fa-chart-pie' },
-      { id: 'tool1', title: 'Emilyyy', description: 'Sivvi internal portal used for managing orders, tickets, and tracking customer inquiries.', url: 'https://support.sv.noon.team/', icon: 'fas fa-chart-simple' },
-]
-  },
       {
 blockTitle: "3PL Tools",
     tools: [
@@ -1002,3 +993,4 @@ function handleSmoothScrollLinkClick(event) {
 window.showPage = showPage;
 window.showTab = showTab;
 window.copyContent = copyContent;
+
