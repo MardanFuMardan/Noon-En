@@ -1,3 +1,154 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Ultimate Noon Templates En - Enhanced V2.2</title> <link rel="icon" type="image/png" href="https://i.imgur.com/iDPqIex.png"> <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2LE23B3FJ"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-M2LE23B3FJ'); </script> <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> <link rel="stylesheet" href="styles.css"> </head> <body> <nav id="mainNav"> <div class="header-logo"> <img id="logo" src="https://i.imgur.com/8qBeodL.png" alt="Ultimate Noon Templates"> </div> <div class="nav-controls"> <input type="text" id="searchBox" placeholder="Search Categories..." class="search-box"> <button id="menuToggle" class="circle-button" title="Toggle Menu"> <i class="fas fa-bars"></i> </button> </div> <div id="priorityNavSection"> </div> <ul id="navbar"> </ul> <div id="aboutUsPageLinkContainer"> </div> <footer class="main-footer"> <p>All rights reserved for <a href="mailto:mmohamedali@noon.com" style="color:var(--accent-primary); text-decoration: none;">Mahmoud Ali</a>. ©2025</p> </footer> <div class="version-info"> <p>V2.2</p> </div> </nav> <div class="dropdown-menu"> <button class="close-menu-btn" title="Close Menu"> <i class="fas fa-times"></i> </button> <div class="dropdown-list"> <div><a href="https://mahmoud-ali-ar-temp.pages.dev"><i class="fas fa-square-envelope"></i>EGY Mail Ar</a></div> <div><a href="https://mahmoud-ali-en-temp.pages.dev"><i class="fas fa-square-envelope"></i>EGY Mail En</a></div> </div> </div> <button id="mobileMenuToggle" class="circle-button mobile-menu-toggle" title="Toggle Mobile Menu"> <i class="fas fa-bars"></i> </button> <div class="content" id="pagesContainer"> </div> <button id="backToTop" title="Back to Top"> <i class="fas fa-chevron-up"></i> </button> <script>document.write(atob("PHNjcmlwdCB0eXBlPSJtb2R1bGUiIHNyYz0idGVtcGxhdGVzLmpzIj48L3NjcmlwdD4="));</script> <script>document.write(atob("PHNjcmlwdCB0eXBlPSJtb2R1bGUiIHNyYz0ic2NyaXB0LmpzIj48L3NjcmlwdD4="));</script> </body> </html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحديث جديد | New Update</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        noon: '#fce000', // Noon's brand yellow
+                        dark: '#121212',
+                        darker: '#0a0a0a'
+                    },
+                    fontFamily: {
+                        arabic: ['Cairo', 'sans-serif'],
+                        english: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body:lang(ar) { font-family: 'Cairo', sans-serif; }
+        body:lang(en) { font-family: 'Montserrat', sans-serif; }
+        
+        /* Smooth transitions */
+        .fade-text { transition: opacity 0.3s ease-in-out; }
+    </style>
+</head>
+<body class="bg-darker text-white min-h-screen flex flex-col items-center justify-center relative overflow-hidden selection:bg-noon selection:text-black">
 
+    <!-- Language Toggle -->
+    <div class="absolute top-6 right-6 rtl:right-auto rtl:left-6">
+        <button id="langToggle" onclick="toggleLanguage()" class="border border-gray-600 hover:border-noon hover:text-noon transition-colors duration-300 px-4 py-2 rounded-md text-sm font-bold tracking-wider">
+            English
+        </button>
+    </div>
 
+    <!-- Main Content -->
+    <main class="max-w-3xl w-full px-6 text-center z-10 flex flex-col items-center">
+        
+        <!-- Badge -->
+        <span class="bg-gray-800 text-gray-300 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-6 border border-gray-700" data-translate="badge">
+            إشعار نظام
+        </span>
+
+        <!-- Two Words Title -->
+        <h1 class="text-5xl md:text-7xl font-black mb-6 text-white tracking-tight" data-translate="title">
+            تحديث <span class="text-noon">شامل</span>
+        </h1>
+
+        <!-- The Message -->
+        <p class="text-gray-400 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl" data-translate="message">
+            تم نقل السكريبت القديم وحذفه نهائياً. لقد قمنا ببناء نظام جديد بالكامل: أقوى، أذكى، أشمل، وأسرع من أي وقت مضى. سيتم توجيهك تلقائياً إلى المنصة الجديدة خلال:
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="flex items-center justify-center space-x-2 rtl:space-x-reverse mb-10">
+            <div class="bg-dark border border-gray-800 rounded-2xl p-6 w-32 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-noon"></div>
+                <span id="countdown" class="text-5xl font-black text-noon">30</span>
+                <span class="block text-gray-500 text-sm mt-2 font-bold uppercase" data-translate="seconds">ثانية</span>
+            </div>
+        </div>
+
+        <!-- Big CTA Button -->
+        <a href="https://mahmoud-ali-home-templates.pages.dev/" id="redirectBtn" class="group relative inline-flex items-center justify-center px-10 py-5 text-xl font-black text-black bg-noon rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(252,224,0,0.4)] w-full sm:w-auto">
+            <span class="relative z-10 flex items-center gap-3">
+                <span data-translate="btnText">انتقل للنسخة الجديدة فوراً</span>
+                <svg class="w-6 h-6 rtl:rotate-180 transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </span>
+            <div class="absolute inset-0 h-full w-full bg-white/20 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+        </a>
+
+        <p class="mt-6 text-gray-500 text-sm" data-translate="subtext">
+            إذا لم ترغب في الانتظار، اضغط على الزر أعلاه.
+        </p>
+    </main>
+
+    <!-- Background Decoration -->
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-noon/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <!-- Logic -->
+    <script>
+        // Target URL
+        const targetUrl = "https://mahmoud-ali-home-templates.pages.dev/";
+        
+        // Timer Logic
+        let timeLeft = 30; // ⚠️ Change this to 5 if you care about conversions
+        const timerElement = document.getElementById('countdown');
+        
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            timerElement.innerText = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                window.location.href = targetUrl;
+            }
+        }, 1000);
+
+        // Translations Dictionary
+        const translations = {
+            ar: {
+                badge: "إشعار نظام",
+                title: "تحديث <span class='text-noon'>شامل</span>",
+                message: "تم نقل السكريبت القديم وحذفه نهائياً. لقد قمنا ببناء نظام جديد بالكامل: أقوى، أذكى، أشمل، وأسرع من أي وقت مضى. سيتم توجيهك تلقائياً إلى المنصة الجديدة خلال:",
+                seconds: "ثانية",
+                btnText: "انتقل للنسخة الجديدة فوراً",
+                subtext: "إذا لم ترغب في الانتظار، اضغط على الزر أعلاه.",
+                toggleText: "English"
+            },
+            en: {
+                badge: "SYSTEM NOTICE",
+                title: "MASSIVE <span class='text-noon'>UPGRADE</span>",
+                message: "The old script has been permanently deleted. We have built an entirely new system: stronger, smarter, more comprehensive, and faster than ever. You will be redirected to the new platform in:",
+                seconds: "Seconds",
+                btnText: "Access New Version Now",
+                subtext: "If you don't want to wait, click the button above.",
+                toggleText: "عربي"
+            }
+        };
+
+        // Language Toggle Logic
+        let currentLang = 'ar';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            
+            // Change HTML attributes
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Update Toggle Button Text
+            document.getElementById('langToggle').innerText = translations[currentLang].toggleText;
+            
+            // Update Content
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                el.style.opacity = 0; // Fade out
+                
+                setTimeout(() => {
+                    el.innerHTML = translations[currentLang][key];
+                    el.style.opacity = 1; // Fade in
+                }, 150);
+            });
+        }
+    </script>
+</body>
+</html>
